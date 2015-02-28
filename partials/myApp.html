@@ -1,0 +1,73 @@
+<script>
+  function PostMyApp($scope, $http) {
+
+    $http({method: 'GET', url: './js/posts-myApp.json'}).success(function (data) {
+      $scope.posts = data;
+    });
+
+  }
+</script>
+
+<div class="sections">
+  <div class="container-fluid main-container">
+    <div class="col-md-2 sidebar app-nav">
+      <nav>
+        <ul>
+          <li class="store"><span class="store-icon"></span><a href="/">All Apps</a></li>
+          <li class="devices"><span class="devices-icon"></span><a href="./#/myApp">My App</a></li>
+          <li class="music"><span class="music-icon"></span><a href="./#/myShop">Shop</a></li>
+          <li class="books"><span class="books-icon"></span><a href="./#/myRated">Rated</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-md-10 content ">
+      <div class="col-md-8 title-text">
+        <h3>My Android Apps</h3>
+      </div>
+      <hr/>
+      <div class="col-md-4 text-right">
+        &nbsp;
+      </div>
+      <div class="row" ng-controller="PostMyApp">
+        <div class="col-lg-12 text-center">
+
+          <!--Start of Loop Text-->
+          <div class="col-lg-2 col-md-2 col-sm-4" ng-repeat="post in posts | limitTo:12">
+            <div class="card">
+              <div class="card-image hidden-xs hidden-sm">
+                <img class="img-responsive"
+                     ng-src="{{post.banner}}">
+                <span class="card-title"></span>
+              </div>
+              <div class="card-color text-left" style="background: #fff;  ">
+                <div class="card-content">
+                  <p>{{post.title}}</p>
+
+            <span class="company_text">
+              <a href="{{post.url}}">{{post.company}}</a>
+            </span>
+                </div>
+                <div class="card-action">
+                  <div class="row">
+                    <div class="col-sm-9 text-left star-text">{{post.star}} <i class="fa fa-star"></i></div>
+                    <div class="col-sm-3 text-right tree-text"><a href="#"><i
+                        class="fa fa-check-circle text-success"></i></a></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+
+

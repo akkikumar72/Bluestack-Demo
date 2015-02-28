@@ -1,0 +1,243 @@
+<script>
+
+  function PostApp($scope, $http) {
+
+    $http({method: 'GET', url: 'js/posts.json'}).success(function (data) {
+      $scope.posts = data;
+    });
+
+  }
+
+  function PostTop($scope, $http) {
+
+    $http({method: 'GET', url: 'js/postTop.json'}).success(function (data) {
+      $scope.posts = data;
+    });
+
+  }
+</script>
+
+
+<div class="sections">
+<div class="container-fluid main-container">
+<div class="col-md-2 sidebar app-nav">
+  <nav>
+    <ul>
+      <li class="store"><span class="store-icon"></span><a href="/">All Apps</a></li>
+      <li class="devices"><span class="devices-icon"></span><a href="./#/myApp">My App</a></li>
+      <li class="music"><span class="music-icon"></span><a href="./#/myShop">Shop</a></li>
+      <li class="books"><span class="books-icon"></span><a href="./#/myRated">Rated</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="col-md-10 content ">
+  <div class="col-md-8 title-text">
+
+    <h3>Top Free Android Apps</h3>
+
+    <p>Select Apps, Weekly Updated</p>
+  </div>
+  <hr/>
+  <div class="col-md-4 text-right">
+    <button class="btn btn-default more-btn hidden-xs hidden-sm">See More &nbsp;<i class="fa fa-angle-double-right"></i>
+    </button>
+  </div>
+  <div class="row" ng-controller="PostApp">
+    <div class="col-lg-12 text-center">
+
+      <!--Start of Loop Text-->
+      <div class="col-lg-2 col-md-2 col-sm-4" ng-repeat="post in posts | limitTo:6">
+        <a href="{{post.url}}">
+          <div class="card">
+            <div class="card-image hidden-xs hidden-sm">
+              <img class="img-responsive"
+                   ng-src="{{post.banner}}">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-color text-left" style="background: #fff;  ">
+              <div class="card-content">
+                <p>{{post.title}}</p>
+
+            <span class="company_text">
+              <a href="{{post.url}}">{{post.company}}</a>
+            </span>
+              </div>
+              <div class="card-action">
+                <div class="row">
+                  <div class="col-sm-6 text-left star-text">{{post.star}} <i class="fa fa-star"></i></div>
+                  <div class="col-sm-6 text-right tree-text"><a href="#">FREE</a></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Start of TOp Paid -->
+<div class="row">
+  <div class="col-sm-2">&nbsp;</div>
+  <div class="col-md-10 content ">
+    <div class="col-md-8 title-text">
+
+      <h3>Paid Apps</h3>
+
+      <p>Most Popular Apps</p>
+    </div>
+    <hr/>
+    <div class="col-md-4 text-right">
+      <button class="btn btn-default more-btn hidden-xs hidden-sm">See More &nbsp;<i
+          class="fa fa-angle-double-right"></i></button>
+    </div>
+    <div class="row" ng-controller="PostTop">
+      <div class="col-lg-12 text-center">
+
+        <!--Start of Loop Text-->
+        <div class="col-lg-2 col-md-2 col-sm-4" ng-repeat="post in posts | limitTo:6">
+
+          <div class="card">
+            <div class="card-image hidden-xs hidden-sm">
+              <img class="img-responsive"
+                   ng-src="{{post.banner}}">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-color text-left" style="background: #fff;  ">
+              <div class="card-content">
+                <p>{{post.title}}</p>
+
+            <span class="company_text">
+              <a href="{{post.url}}">{{post.company}}</a>
+            </span>
+              </div>
+              <div class="card-action">
+                <div class="row">
+                  <div class="col-sm-7 text-left star-text">{{post.star}}/5 <i class="fa fa-star"></i></div>
+                  <div class="col-sm-5 text-right tree-text"><a href="#">FREE</a></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--End of pIad-->
+
+<!--start of Personlization App--->
+
+<div class="row">
+  <div class="col-sm-2">&nbsp;</div>
+  <div class="col-md-10 content ">
+    <div class="col-md-8 title-text">
+
+      <h3>Personalization Apps</h3>
+
+      <p>Customize your device</p>
+    </div>
+    <hr/>
+    <div class="col-md-4 text-right">
+      <button class="btn btn-default more-btn hidden-xs hidden-sm">See More &nbsp;<i
+          class="fa fa-angle-double-right"></i></button>
+    </div>
+    <div class="row" ng-controller="PostApp">
+      <div class="col-lg-12 text-center">
+
+        <!--Start of Loop Text-->
+        <div class="col-lg-2 col-md-2 col-sm-4" ng-repeat="post in posts | limitTo:6">
+
+          <div class="card">
+            <div class="card-image hidden-xs hidden-sm">
+              <img class="img-responsive"
+                   ng-src="{{post.banner}}">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-color text-left" style="background: #fff;  ">
+              <div class="card-content">
+                <p>{{post.title}}</p>
+
+            <span class="company_text">
+              <a href="{{post.url}}">{{post.company}}</a>
+            </span>
+              </div>
+              <div class="card-action">
+                <div class="row">
+                  <div class="col-sm-7 text-left star-text">{{post.star}}/5 <i class="fa fa-star"></i></div>
+                  <div class="col-sm-5 text-right tree-text"><a href="#">FREE</a></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End of App-->
+
+<!--Start of Communication App--->
+
+<div class="row">
+  <div class="col-sm-2">&nbsp;</div>
+  <div class="col-md-10 content ">
+    <div class="col-md-8 title-text">
+
+      <h3>Communication Apps</h3>
+
+      <p>Recommended for you</p>
+    </div>
+    <hr/>
+    <div class="col-md-4 text-right">
+      <button class="btn btn-default more-btn hidden-xs hidden-sm">See More &nbsp;<i
+          class="fa fa-angle-double-right"></i></button>
+    </div>
+    <div class="row" ng-controller="PostTop">
+      <div class="col-lg-12 text-center">
+
+        <!--Start of Loop Text-->
+        <div class="col-lg-2 col-md-2 col-sm-4" ng-repeat="post in posts | limitTo:6">
+
+          <div class="card">
+            <div class="card-image hidden-xs hidden-sm">
+              <img class="img-responsive"
+                   ng-src="{{post.banner}}">
+              <span class="card-title"></span>
+            </div>
+            <div class="card-color text-left" style="background: #fff;  ">
+              <div class="card-content">
+                <p>{{post.title}}</p>
+
+            <span class="company_text">
+              <a href="{{post.url}}">{{post.company}}</a>
+            </span>
+              </div>
+              <div class="card-action">
+                <div class="row">
+                  <div class="col-sm-7 text-left star-text">{{post.star}}/5 <i class="fa fa-star"></i></div>
+                  <div class="col-sm-5 text-right tree-text"><a href="#">FREE</a></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--End of Communicaion App---->
+</div>
+
+</div>
+
+
+
+
+
